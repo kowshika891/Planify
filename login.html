@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventix - Log In</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background: #000;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Isolated background image for the login screen only */
+        body::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0.5;
+            width: 100%;
+            height: 100%;
+            background-image: url('index_background.jpg');
+            background-position: center;
+            background-size: cover;
+            z-index: 0;
+        }
+
+        .form-wrapper {
+            position: relative;
+            z-index: 1;
+            border-radius: 4px;
+            padding: 60px;
+            width: 450px;
+            background: rgba(0, 0, 0, .75);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-wrapper h2 {
+            color: #fff;
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .form-wrapper form {
+            margin: 25px 0;
+        }
+
+        .form-control {
+            height: 50px;
+            position: relative;
+            margin-bottom: 16px;
+        }
+
+        .form-control input {
+            height: 100%;
+            width: 100%;
+            background: #333;
+            border: none;
+            outline: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 1rem;
+            padding: 0 20px;
+        }
+
+        .form-control input:is(:focus, :valid) {
+            background: #444;
+            padding: 16px 20px 0;
+        }
+
+        .form-control label {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1rem;
+            pointer-events: none;
+            color: #8c8c8c;
+            transition: all 0.1s ease;
+        }
+
+        .form-control input:is(:focus, :valid) ~ label {
+            font-size: 0.75rem;
+            transform: translateY(-130%);
+        }
+
+        .form-wrapper form button {
+            width: 100%;
+            padding: 16px 0;
+            font-size: 1rem;
+            background: #6a11cb; 
+            color: #fff;
+            font-weight: 500;
+            border-radius: 4px;
+            border: none;
+            outline: none;
+            margin: 25px 0 10px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .form-wrapper form button:hover {
+            background: #2575fc;
+        }
+
+        @media (max-width: 768px) {
+            body::before {
+                display: none;
+            }
+            .form-wrapper {
+                width: 90%;
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-wrapper">
+        <h2>Log In</h2>
+        <form onsubmit="handleLogin(event)">
+            <div class="form-control">
+                <input type="text" required />
+                <label>Email or phone number</label>
+            </div>
+            <div class="form-control">
+                <input type="password" required />
+                <label>Password</label>
+            </div>
+            <button type="submit">Log In</button>
+        </form>
+    </div>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault(); // Stop standard processing
+            window.location.href = "index.html"; // Direct routing to main page
+        }
+    </script>
+</body>
+</html>
